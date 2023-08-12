@@ -4,8 +4,8 @@ class ship:
         self.crew = crew
     def is_worth_it(self):
         aux=self.calculate_weight
-        #if(aux>20):
-            #saquear
+        if(aux>20):
+            print("El barco merece ser saqueado")
         #else:
             #exc
 
