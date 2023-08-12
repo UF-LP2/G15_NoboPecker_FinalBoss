@@ -1,2 +1,4 @@
-#clases
-
+class ship:
+    def def__init__(self, draft, crew):
+        self.draft = draft
+        self.crew = crew
