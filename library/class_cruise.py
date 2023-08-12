@@ -1,5 +1,5 @@
-import class_ship
+from class_ship import ship
 
 class cruise(ship):
-    def def_init__(self,passengers,draft,crew):
+    def _init__(self,passengers,draft,crew):
         self.passengers=passengers
