@@ -4,9 +4,9 @@ class ship:
         self.crew = crew
     def is_worth_it(self):
         aux=self.calculate_weight
-        if(aux>20):
+        #if(aux>20):
             #saquear
-        else:
+        #else:
             #exc
 
     def calculate_weight(self):
