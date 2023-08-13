@@ -11,8 +11,9 @@ class cargo (ship):
             cargo_aux=2
         elif(self.quality==0.25):
             cargo_aux=0.5
-        #else:
-            #exc
+        else:
+            raise ValueError("Valor de calidad invalido")
 
+        #self.cargo?
         weight=self.draft-self.crew*1.5-self.cargo*cargo_aux
         return weight
