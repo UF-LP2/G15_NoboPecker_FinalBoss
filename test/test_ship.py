@@ -1,8 +1,7 @@
 import unittest
+from src.class_ship import ship
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
-
-if __name__ == '__main__':
-    unittest.main()
+class Test1 (unittest.TestCase):
+    def test_calculateweight(self):
+       barco= ship(1200, 500)
+       assert barco.calculate_weight()== 450

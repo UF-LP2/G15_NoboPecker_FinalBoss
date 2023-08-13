@@ -1,10 +1,10 @@
 import unittest
+from src.class_cargo import cargo
 
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
+class Test1 (unittest.TestCase):
+    def test_calculateweight(self):
+        Cargo=cargo(1, 0.5, 1200, 500)
+        assert Cargo.calculate_weight() == 449.5
 
 
-if __name__ == '__main__':
-    unittest.main()
