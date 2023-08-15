@@ -20,10 +20,4 @@ def test_is_worth_it() -> None:
     with pytest.raises(ValueError):
         cargo3.is_worth_it()
 
-def test_constructor() -> None:
-
-
-
-
-
-
+#def test_constructor() -> None:
