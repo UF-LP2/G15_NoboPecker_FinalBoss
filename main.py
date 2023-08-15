@@ -19,7 +19,7 @@ def main() -> None:
           aux_draft = Ship.convert_type(row[0])
           aux_crew = Ship.convert_type(row[1])
           aux_passengers=Ship.convert_type(row[2])
-          ships.append(Cruise(aux_draft,aux_crew,aux_passengers))
+          ships.append(Cruise(aux_passengers,aux_draft,aux_crew))
         else: #cargo
           aux_draft = Ship.convert_type(row[0])
           aux_crew = Ship.convert_type(row[1])
@@ -28,7 +28,7 @@ def main() -> None:
             aux_cargo=Ship.convert_type(row[2])
           else:
             aux_cargo=0.0
-          ships.append(Cargo(aux_draft,aux_crew,aux_cargo,aux_quality))
+          ships.append(Cargo(aux_cargo,aux_quality,aux_draft,aux_crew))
       except ValueError as e:
         print (e.args)
 if __name__ == "__main__":

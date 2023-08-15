@@ -15,6 +15,7 @@ class Ship:
         self.draft = draft
         self.crew = crew
     def is_worth_it(self)->float:
+        aux=0
         try:
             aux=self.calculate_weight()
         except ValueError as e:
@@ -24,7 +25,7 @@ class Ship:
                 print("El barco merece ser saqueado")
             else:
                 raise ValueError("Error de cantidad")
-            return aux
+        return aux
 
     def calculate_weight(self)->float:
         aux_draft=Ship.convert_type(self.draft)
@@ -34,7 +35,7 @@ class Ship:
 
 class Cruise(Ship):
     passengersWeight=2.25
-    def __init__(self, draft, crew, passengers=0):#pongo 0 por defecto por si no me pasan nada
+    def __init__(self, passengers, draft, crew):
         super().__init__(draft,crew)
         self.passengers = passengers
 
@@ -50,16 +51,16 @@ class Cargo (Ship):
     value_quality1 = 3.5
     value_quality05 = 2
     value_quality025 = 0.5
-    def __init__(self, draft, crew, cargo=0, quality=0):
+    def __init__(self, cargo,quality, draft, crew):
         super().__init__(draft, crew)
         self.cargo = cargo
         self.quality = quality
     def calculate_weight(self)->float:
         aux_draft = Ship.convert_type(self.draft)
         aux_crew = Ship.convert_type(self.crew)
-        aux_cargo=Ship.convert_type(self.cargo)
-        cargo_aux_val=0
-        quality_aux=Ship.convert_type(self.quality)
+        aux_cargo = Ship.convert_type(self.cargo)
+        quality_aux = Ship.convert_type(self.quality)
+        cargo_aux_val = 0
         if(quality_aux==1):
             cargo_aux_val= Cargo.value_quality1
         elif (quality_aux==0.5):
@@ -68,5 +69,5 @@ class Cargo (Ship):
             cargo_aux_val= Cargo.value_quality025
         else:
             raise ValueError("Valor de calidad invalido")
-        weight=aux_draft-aux_crew*Ship.crewWeight-aux_cargo*cargo_aux_val
+        weight = aux_draft - aux_crew*Ship.crewWeight - aux_cargo*cargo_aux_val
         return weight
