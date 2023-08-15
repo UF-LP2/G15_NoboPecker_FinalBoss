@@ -3,7 +3,7 @@ from class_ship import ship
 class cruise(ship):
     passengersWeight=2.25
     def __init__(self, draft, crew, passengers=0):#pongo 0 por defecto por si no me pasan nada
-        super()._init__(self,draft,crew)
+        super().__init__(self,draft,crew)
         self.passengers = passengers
       ##  try:
         ##    ship.check_type(draft)

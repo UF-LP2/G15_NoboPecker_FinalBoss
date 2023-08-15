@@ -5,7 +5,7 @@ class cargo (ship):
     value_quality05 = 2
     value_quality025 = 0.5
     def __init__(self, draft, crew, cargo=0, quality=0):
-        super()._init__(draft, crew)
+        super().__init__(draft, crew)
         self.cargo = cargo
         self.quality = quality
     def calculate_weight(self):

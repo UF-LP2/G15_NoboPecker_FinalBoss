@@ -6,7 +6,7 @@ class ship:
             return True
         else:
             raise ValueError("El valor ingresado no es un numero")
-    def _init__(self, draft, crew):
+    def __init__(self, draft, crew):
         self.draft = draft
         self.crew = crew
     def is_worth_it(self):
