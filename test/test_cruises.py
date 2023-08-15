@@ -2,7 +2,7 @@
 import pytest
 from src.ships import Cruise
 def test_crucero_1():
-   #todo ok
+   #todook
    crucero1 = Cruise(2100, 600, 90)
    assert crucero1.is_worth_it()>=20
    # menor a 20

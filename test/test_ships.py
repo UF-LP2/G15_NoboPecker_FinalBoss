@@ -2,7 +2,7 @@ import pytest
 from src.ships import Ship
 def test_barco_1():
     barco1=Ship(122,56)
-    #todo ok
+    #todook
     assert barco1.is_worth_it()>=20
     #menor a 20
     barco1.draft=10
@@ -10,7 +10,7 @@ def test_barco_1():
         barco1.is_worth_it()
 def test_barco_2():
     barco2=Ship(500,120)
-    #todo ok
+    #todook
     assert barco2.is_worth_it()>=20
     #menor a 20
     barco2.draft=30
@@ -19,7 +19,7 @@ def test_barco_2():
 
 def test_barco_3():
     barco3=Ship(900,600)
-    #todo ok
+    #todook
     assert barco3.is_worth_it()>=20
     #menor a 20
     barco3.draft=500
