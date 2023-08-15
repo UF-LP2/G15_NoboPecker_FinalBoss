@@ -1,6 +1,6 @@
 class Ship:
     crewWeight = 1.5
-    def check_type(value):
+    def check_type(value)->bool:
         if type(value)==int or type(value)==float:
             return True
         else:
@@ -8,9 +8,9 @@ class Ship:
     def __init__(self, draft, crew):
         self.draft = draft
         self.crew = crew
-    def is_worth_it(self):
+    def is_worth_it(self)->float:
         aux=self.calculate_weight()
-        if(aux>20):
+        if(aux>20.0):
             print("El barco merece ser saqueado")
         else:
             raise ValueError("Error de cantidad")
@@ -21,7 +21,7 @@ class Ship:
         # except ValueError as e:
             # print(e.args) //imprime "Error de cantidad"
 
-    def calculate_weight(self):
+    def calculate_weight(self)->float:
         weight=self.draft-self.crew*Ship.crewWeight
         return weight
 
@@ -38,9 +38,9 @@ class Cruise(Ship):
         ##    return
 
 
-    def calculate_weight(self):
+    def calculate_weight(self)->float:
         weight=self.draft-self.crew*Ship.crewWeight-self.passengers*Cruise.passengersWeight
-        return
+        return weight
 
 class Cargo (Ship):
     # statics de los valores correspondientes a cada calidad de cargo
@@ -51,7 +51,7 @@ class Cargo (Ship):
         super().__init__(draft, crew)
         self.cargo = cargo
         self.quality = quality
-    def calculate_weight(self):
+    def calculate_weight(self)->float:
         cargo_aux=0
         if(self.quality==1):
             cargo_aux= self.value_quality1
