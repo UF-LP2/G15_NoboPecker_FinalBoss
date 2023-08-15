@@ -4,7 +4,8 @@ class cargo (ship):
     value_quality1 = 3.5
     value_quality05 = 2
     value_quality025 = 0.5
-    def __init__(self, cargo, quality, draft, crew):
+    def __init__(self, draft, crew, cargo=0, quality=0):
+        super()._init__(draft, crew)
         self.cargo = cargo
         self.quality = quality
     def calculate_weight(self):
@@ -18,6 +19,5 @@ class cargo (ship):
         else:
             raise ValueError("Valor de calidad invalido")
 
-        #self.cargo?
-        weight=self.draft-self.crew*1.5-self.cargo*cargo_aux
+        weight=self.draft-self.crew*ship.crewWeight-self.cargo*cargo_aux
         return weight
