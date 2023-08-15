@@ -9,7 +9,7 @@ class Ship:
         self.draft = draft
         self.crew = crew
     def is_worth_it(self):
-        aux=self.calculate_weight
+        aux=self.calculate_weight()
         if(aux>20):
             print("El barco merece ser saqueado")
         else:
