@@ -15,7 +15,7 @@ class ship:
             print("El barco merece ser saqueado")
         else:
             raise ValueError("Error de cantidad")
-
+        return aux
         # SINTAXIS DEL TRY
         # try:
            # loquesea()
