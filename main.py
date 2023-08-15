@@ -20,23 +20,23 @@ def main() -> None:
     for row in reader: #recorro y voy guardando
       try:
         if row[2]=='' and row[3]=='': #ship
-          aux1=convert_type(row[0])
-          aux2=convert_type(row[1])
-          ships.append(Ship(aux1,aux2))
+          aux_draft=convert_type(row[0])
+          aux_crew=convert_type(row[1])
+          ships.append(Ship(aux_draft,aux_crew))
         elif row[3]=='': #cruise
-          aux1 = convert_type(row[0])
-          aux2 = convert_type(row[1])
-          aux3=convert_type(row[2])
-          ships.append(Cruise(aux1,aux2,aux3))
+          aux_draft = convert_type(row[0])
+          aux_crew = convert_type(row[1])
+          aux_passengers=convert_type(row[2])
+          ships.append(Cruise(aux_draft,aux_crew,aux_passengers))
         else: #cargo
-          aux1 = convert_type(row[0])
-          aux2 = convert_type(row[1])
-          aux4=convert_type(row[3])
+          aux_draft = convert_type(row[0])
+          aux_crew = convert_type(row[1])
+          aux_quality=convert_type(row[3])
           if row[2]!='':
-            aux3=convert_type(row[2])
+            aux_cargo=convert_type(row[2])
           else:
-            aux3=0.0
-          ships.append(Cargo(aux1,aux2,aux3,aux4))
+            aux_cargo=0.0
+          ships.append(Cargo(aux_draft,aux_crew,aux_cargo,aux_quality))
       except ValueError as e:
         print (e.args)
 
