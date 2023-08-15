@@ -10,11 +10,6 @@ class Ship:
         else:
             raise ValueError("Error de cantidad")
         return aux
-        # SINTAXIS DEL TRY
-        # try:
-           # loquesea()
-        # except ValueError as e:
-            # print(e.args) //imprime "Error de cantidad"
 
     def calculate_weight(self)->float:
         weight=self.draft-self.crew*Ship.crewWeight
@@ -25,13 +20,6 @@ class Cruise(Ship):
     def __init__(self, draft, crew, passengers=0):#pongo 0 por defecto por si no me pasan nada
         super().__init__(draft,crew)
         self.passengers = passengers
-      ##  try:
-        ##    ship.check_type(draft)
-       ##     ship.check_type(crew)
-       ##     ship.check_type(passengers)
-       ## except ValueError:
-        ##    return
-
 
     def calculate_weight(self)->float:
         weight=self.draft-self.crew*Ship.crewWeight-self.passengers*Cruise.passengersWeight
