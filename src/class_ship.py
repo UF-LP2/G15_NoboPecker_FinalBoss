@@ -1,6 +1,11 @@
 
 class ship:
     crewWeight = 1.5
+    def check_type(value):
+        if type(value)==int or type(value)==float:
+            return True
+        else:
+            raise ValueError("El valor ingresado no es un numero")
     def _init__(self, draft, crew):
         self.draft = draft
         self.crew = crew
