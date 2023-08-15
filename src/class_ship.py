@@ -1,4 +1,6 @@
+
 class ship:
+    crewWeight = 1.5
     def _init__(self, draft, crew):
         self.draft = draft
         self.crew = crew
@@ -16,7 +18,7 @@ class ship:
             # print(e.args) //imprime "Error de cantidad"
 
     def calculate_weight(self):
-        weight=self.draft-self.crew*1.5
+        weight=self.draft-self.crew*ship.crewWeight
         return weight
 
     #en el csv la primer columna es de draft, la segunda de crew, la tercera de cargo y la cuarta de quality.
