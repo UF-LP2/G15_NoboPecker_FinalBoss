@@ -31,7 +31,6 @@ def main() -> None:
           ships.append(Cargo(aux_draft,aux_crew,aux_cargo,aux_quality))
       except ValueError as e:
         print (e.args)
-
 if __name__ == "__main__":
   main()
 
