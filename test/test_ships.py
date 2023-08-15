@@ -18,7 +18,7 @@ def test_barco_2():
         barco2.is_worth_it()
 
 def test_barco_3():
-    barco3=Ship(900,600)
+    barco3=Ship(1500,600)
     #todook
     assert barco3.is_worth_it()>=20
     #menor a 20

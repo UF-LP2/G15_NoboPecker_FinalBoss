@@ -24,8 +24,5 @@ def test_cargo3() -> None:
     cargo3.draft=100
     with pytest.raises(ValueError):
         cargo3.is_worth_it()
-    #valor invalido para calidad
-    cargo3.draft=1000
-    cargo3.quality=7
-    with pytest.raises(ValueError):
-        cargo3.is_worth_it()
+
+

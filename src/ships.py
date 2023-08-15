@@ -1,6 +1,16 @@
-from main import convert_type
+
 class Ship:
     crewWeight = 1.5
+
+    def convert_type(value) -> float:
+        try:
+            aux = float(value)
+        except ValueError as e:
+            print(e.args)
+        else:
+            if aux >= 0:
+                return aux
+        raise ValueError("El valor ingresado no es valido")
     def __init__(self, draft, crew):
         self.draft = draft
         self.crew = crew
@@ -17,8 +27,8 @@ class Ship:
             return aux
 
     def calculate_weight(self)->float:
-        aux_draft=convert_type(self.draft)
-        aux_crew=convert_type(self.crew)
+        aux_draft=Ship.convert_type(self.draft)
+        aux_crew=Ship.convert_type(self.crew)
         weight=aux_draft-aux_crew*Ship.crewWeight
         return weight
 
@@ -29,9 +39,9 @@ class Cruise(Ship):
         self.passengers = passengers
 
     def calculate_weight(self)->float:
-        aux_draft=convert_type(self.draft)
-        aux_crew=convert_type(self.crew)
-        aux_passengers=convert_type(self.passengers)
+        aux_draft=Ship.convert_type(self.draft)
+        aux_crew=Ship.convert_type(self.crew)
+        aux_passengers=Ship.convert_type(self.passengers)
         weight=aux_draft-aux_crew*Ship.crewWeight-aux_passengers*Cruise.passengersWeight
         return weight
 
@@ -45,11 +55,11 @@ class Cargo (Ship):
         self.cargo = cargo
         self.quality = quality
     def calculate_weight(self)->float:
-        aux_draft = convert_type(self.draft)
-        aux_crew = convert_type(self.crew)
-        aux_cargo=convert_type(self.cargo)
+        aux_draft = Ship.convert_type(self.draft)
+        aux_crew = Ship.convert_type(self.crew)
+        aux_cargo=Ship.convert_type(self.cargo)
         cargo_aux_val=0
-        quality_aux=convert_type(self.quality)
+        quality_aux=Ship.convert_type(self.quality)
         if(quality_aux==1):
             cargo_aux_val= Cargo.value_quality1
         elif (quality_aux==0.5):
@@ -58,6 +68,5 @@ class Cargo (Ship):
             cargo_aux_val= Cargo.value_quality025
         else:
             raise ValueError("Valor de calidad invalido")
-
         weight=aux_draft-aux_crew*Ship.crewWeight-aux_cargo*cargo_aux_val
         return weight
