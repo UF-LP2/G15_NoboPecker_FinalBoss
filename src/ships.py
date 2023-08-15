@@ -1,18 +1,25 @@
+from main import convert_type
 class Ship:
     crewWeight = 1.5
     def __init__(self, draft, crew):
         self.draft = draft
         self.crew = crew
     def is_worth_it(self)->float:
-        aux=self.calculate_weight()
-        if(aux>20.0):
-            print("El barco merece ser saqueado")
+        try:
+            aux=self.calculate_weight()
+        except ValueError as e:
+            print(e.args)
         else:
-            raise ValueError("Error de cantidad")
-        return aux
+            if(aux>20.0):
+                print("El barco merece ser saqueado")
+            else:
+                raise ValueError("Error de cantidad")
+            return aux
 
     def calculate_weight(self)->float:
-        weight=self.draft-self.crew*Ship.crewWeight
+        aux_draft=convert_type(self.draft)
+        aux_crew=convert_type(self.crew)
+        weight=aux_draft-aux_crew*Ship.crewWeight
         return weight
 
 class Cruise(Ship):
@@ -22,7 +29,10 @@ class Cruise(Ship):
         self.passengers = passengers
 
     def calculate_weight(self)->float:
-        weight=self.draft-self.crew*Ship.crewWeight-self.passengers*Cruise.passengersWeight
+        aux_draft=convert_type(self.draft)
+        aux_crew=convert_type(self.crew)
+        aux_passengers=convert_type(self.passengers)
+        weight=aux_draft-aux_crew*Ship.crewWeight-aux_passengers*Cruise.passengersWeight
         return weight
 
 class Cargo (Ship):
@@ -35,15 +45,19 @@ class Cargo (Ship):
         self.cargo = cargo
         self.quality = quality
     def calculate_weight(self)->float:
-        cargo_aux=0
-        if(self.quality==1):
-            cargo_aux= self.value_quality1
-        elif (self.quality==0.5):
-            cargo_aux= self.value_quality05
-        elif(self.quality==0.25):
-            cargo_aux= self.value_quality025
+        aux_draft = convert_type(self.draft)
+        aux_crew = convert_type(self.crew)
+        aux_cargo=convert_type(self.cargo)
+        cargo_aux_val=0
+        quality_aux=convert_type(self.quality)
+        if(quality_aux==1):
+            cargo_aux_val= Cargo.value_quality1
+        elif (quality_aux==0.5):
+            cargo_aux_val= Cargo.value_quality05
+        elif(quality_aux==0.25):
+            cargo_aux_val= Cargo.value_quality025
         else:
             raise ValueError("Valor de calidad invalido")
 
-        weight=self.draft-self.crew*Ship.crewWeight-self.cargo*cargo_aux
+        weight=aux_draft-aux_crew*Ship.crewWeight-aux_cargo*cargo_aux_val
         return weight
