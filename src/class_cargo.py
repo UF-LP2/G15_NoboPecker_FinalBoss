@@ -1,4 +1,4 @@
-from class_ship import ship
+from src.class_ship import ship
 class cargo (ship):
     # statics de los valores correspondientes a cada calidad de cargo
     value_quality1 = 3.5
